@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="650" viewBox="0 0 900 650">
+  <defs>
+    <linearGradient id="g" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#d2aa78"/>
+      <stop offset="1" stop-color="#8b5e34"/>
+    </linearGradient>
+  </defs>
+  <rect width="900" height="650" fill="url(#g)"/>
+  <circle cx="450" cy="250" r="110" fill="#fff4e3" opacity=".92"/>
+  <circle cx="315" cy="310" r="75" fill="#fff4e3" opacity=".84"/>
+  <circle cx="585" cy="310" r="75" fill="#fff4e3" opacity=".84"/>
+  <path d="M190 570c25-130 120-205 260-205s235 75 260 205z" fill="#fff4e3" opacity=".82"/>
+  <text x="450" y="110" text-anchor="middle" fill="#fff7ed" font-size="54" font-family="Arial, sans-serif" font-weight="800">Family Story</text>
+</svg>

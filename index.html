@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>우리 가족 홈페이지</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="hero">
+    <nav class="nav">
+      <div class="brand">
+        <span class="logo">家</span>
+        <div>
+          <strong>우리 가족 홈페이지</strong>
+          <small>Family Story · Photo · Chat</small>
+        </div>
+      </div>
+      <div class="nav-links">
+        <a href="#family">가족소개</a>
+        <a href="#gallery">사진첩</a>
+        <a href="#chat">가족채팅</a>
+        <a href="#invite">초대하기</a>
+      </div>
+    </nav>
+
+    <section class="hero-content">
+      <div>
+        <p class="eyebrow">우리 가족의 소중한 기록 공간</p>
+        <h1>사진과 이야기를 모아<br />가족 홈페이지를 만들어 보세요.</h1>
+        <p class="hero-desc">
+          가족 프로필, 사진첩, 가족 채팅, 친구·친지 초대 안내까지
+          한 화면에서 사용할 수 있도록 구성했습니다.
+        </p>
+        <div class="hero-actions">
+          <a class="btn primary" href="#family">가족 등록하기</a>
+          <a class="btn" href="#guide">사용방법 보기</a>
+        </div>
+      </div>
+      <div class="hero-card">
+        <div class="hero-photo" id="mainPreview">우리 가족</div>
+        <p>가족 사진을 등록하면 홈페이지에 자동으로 표시됩니다.</p>
+      </div>
+    </section>
+  </header>
+
+  <main>
+    <section id="guide" class="section">
+      <div class="section-title">
+        <span>사용 안내</span>
+        <h2>index.html만 클릭하면 바로 실행됩니다</h2>
+      </div>
+      <div class="grid guide-grid">
+        <article class="card">
+          <b>1. 가족 등록</b>
+          <p>가족 사진, 이름, 관계, 소개글을 입력하고 저장합니다.</p>
+        </article>
+        <article class="card">
+          <b>2. 사진첩 등록</b>
+          <p>생활 사진과 설명을 올려 가족 추억을 기록합니다.</p>
+        </article>
+        <article class="card">
+          <b>3. 가족 채팅</b>
+          <p>가족 대화 내용을 남기는 게시판형 채팅으로 사용할 수 있습니다.</p>
+        </article>
+        <article class="card">
+          <b>4. 친지 초대</b>
+          <p>초대 문구를 복사해서 카카오톡, 문자, 이메일로 전달할 수 있습니다.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="family" class="section">
+      <div class="section-title">
+        <span>Family Profile</span>
+        <h2>가족 소개 등록</h2>
+      </div>
+
+      <div class="two-col">
+        <form id="familyForm" class="panel">
+          <label>가족 사진</label>
+          <input type="file" id="familyPhoto" accept="image/*" />
+
+          <label>이름</label>
+          <input type="text" id="familyName" placeholder="예: 정한채" required />
+
+          <label>관계</label>
+          <input type="text" id="familyRole" placeholder="예: 아버지, 어머니, 장남" />
+
+          <label>소개글</label>
+          <textarea id="familyIntro" placeholder="가족을 소개하는 따뜻한 글을 작성하세요."></textarea>
+
+          <button class="btn primary full" type="submit">가족 소개 저장</button>
+          <button class="btn danger full" type="button" onclick="clearFamily()">가족 소개 전체 삭제</button>
+        </form>
+
+        <div>
+          <div id="familyList" class="profile-list"></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="gallery" class="section soft">
+      <div class="section-title">
+        <span>Photo Album</span>
+        <h2>가족 생활 사진첩</h2>
+      </div>
+
+      <div class="two-col">
+        <form id="galleryForm" class="panel">
+          <label>사진 선택</label>
+          <input type="file" id="galleryPhoto" accept="image/*" required />
+
+          <label>사진 제목</label>
+          <input type="text" id="galleryTitle" placeholder="예: 제주 가족여행" required />
+
+          <label>사진 설명</label>
+          <textarea id="galleryDesc" placeholder="사진에 담긴 이야기를 작성하세요."></textarea>
+
+          <button class="btn primary full" type="submit">사진첩에 저장</button>
+          <button class="btn danger full" type="button" onclick="clearGallery()">사진첩 전체 삭제</button>
+        </form>
+
+        <div id="galleryList" class="gallery-list"></div>
+      </div>
+    </section>
+
+    <section id="chat" class="section">
+      <div class="section-title">
+        <span>Family Chat</span>
+        <h2>가족 채팅방</h2>
+        <p class="hint">
+          현재 버전은 서버 없이 실행되는 로컬 저장 방식입니다.
+          같은 컴퓨터와 같은 브라우저에서 작성한 대화가 보관됩니다.
+        </p>
+      </div>
+
+      <div class="chat-box">
+        <div id="chatMessages" class="chat-messages"></div>
+        <form id="chatForm" class="chat-form">
+          <input type="text" id="chatName" placeholder="작성자" required />
+          <input type="text" id="chatText" placeholder="가족에게 남길 말을 입력하세요." required />
+          <button class="btn primary" type="submit">전송</button>
+        </form>
+        <button class="btn danger" type="button" onclick="clearChat()">채팅 전체 삭제</button>
+      </div>
+    </section>
+
+    <section id="invite" class="section invite">
+      <div class="section-title">
+        <span>Invitation</span>
+        <h2>친구·친지 초대하기</h2>
+      </div>
+
+      <div class="invite-box">
+        <textarea id="inviteText">안녕하세요. 우리 가족 홈페이지를 만들었습니다.
+가족 사진과 생활 이야기를 함께 볼 수 있도록 초대드립니다.
+첨부된 홈페이지 폴더의 index.html 파일을 클릭해 확인해 주세요.</textarea>
+        <button class="btn primary" onclick="copyInvite()">초대 문구 복사</button>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 우리 가족 홈페이지 · 소중한 가족의 이야기를 기록합니다.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
